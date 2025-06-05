@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.List;
 
@@ -44,8 +46,10 @@ public class CounterController {
     if (counter.isPresent()) {
       count = counter.get().getCount();
     }
+    Map map=new HashMap();
+    map.put("count", count);
 
-    return ApiResponse.ok(count);
+    return ApiResponse.ok(map);
   }
 
 
